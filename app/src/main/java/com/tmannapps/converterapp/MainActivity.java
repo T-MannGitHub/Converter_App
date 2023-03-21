@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                //Destination spinner config here
                 mySpinnerDestinationUnit = findViewById(R.id.mySpinnerDestinationUnit);
                 ArrayAdapter<CharSequence> adapterDest = ArrayAdapter.createFromResource(adapterView.getContext(), R.array.Units, android.R.layout.simple_spinner_item);
                 adapterDest.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -51,27 +52,28 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                Toast.makeText(MainActivity.this, "Please select a source unit ", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(MainActivity.this, "Please select a starting unit ", Toast.LENGTH_SHORT).show();
             }
         });
 
         myButtonConvert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                // error handling if user enters an invalid entry such as a decimal point only, or a double value
+                // error handling if user enters an invalid entry such as a decimal point only
                 try {
+
                 myTextEnterNumber = (EditText)findViewById(R.id.myTextEnterNumber);
                 String value = myTextEnterNumber.getText().toString();
                 double inputValue = Double.parseDouble(value);
 
-                // create an empty list to add the src snd dest selection items t
+                // create an empty list to add the source and destination selection items to
                 List selection = new ArrayList();
-                // create a variable to store the conversion value to
+                // create a variable to store the conversion value in
                 Double output = 0.0;
-                // set the resulting value as the input value multiplied by the conversion value
+                // set the resulting value variable, to use as the input value multiplied by the conversion value
                 Double result = 0.0;
 
+                //add source unit selection to the list
                switch (mySpinnerSourceUnit.getSelectedItem().toString()) {
                    case "Kilograms":
                        selection.add("KG");
@@ -92,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                        selection.add("nCAT");
                        break;
                }
-
+                    //add destination unit selection to the list
                 switch (mySpinnerDestinationUnit.getSelectedItem().toString()) {
                     case "Kilograms":
                         selection.add("kg");
@@ -193,8 +195,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     else if (selection.get(1) == "kg")
                         output = 6.0;}
 
-                // add error handling here for if input value is not a number
-
                     if (output == inputValue) {
                         // error handling for input value and output value the same
                         myTextAnswer.setText("Units are the same, please try again");
@@ -204,29 +204,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         String stringResult = String.valueOf(result);
                         myTextAnswer.setText(stringResult + (selection.get(1)));
                     }
+                    //error handling for invalid input
                 } catch (Exception exception) {
                     Toast.makeText(MainActivity.this, "Please enter a number ", Toast.LENGTH_SHORT).show();
                 }
-
-
-
-
-                //use this to practice locating spinner elements
-                //Toast.makeText(MainActivity.this, "Please enter a number ", Toast.LENGTH_SHORT).show();
-
-
             }
         });
     }
 
-
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
     }
-
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
-
     }
 }
