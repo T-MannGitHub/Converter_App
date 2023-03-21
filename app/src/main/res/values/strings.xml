@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Converter App</string>
+    <string name= "mySpinnerStart">Starting Unit</string>
+    <string name= "mySpinnerEnd">End Unit</string>
+    <string name= "value">Value</string>
+    <string name= "convertButton">Convert</string>
+
+    <string-array name="Units">
+        <item>Kilograms</item>
+        <item>Grams</item>
+        <item>Milligrams</item>
+        <item>Pounds</item>
+        <item>Ounces</item>
+        <item>How many cats?</item>
+    </string-array>
+
+    <string-array name="years">
+        <item>Cat years</item>
+        <item>Human years</item>
+    </string-array>
+
+</resources>
