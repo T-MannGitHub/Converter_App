@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     EditText myTextEnterNumber;
     TextView myTextAnswer;
 
-
+// Tiffany Mann SIT708 Task 2.1 Converter App Student ID: 221457972
     @Override
    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
